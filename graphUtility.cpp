@@ -5,22 +5,25 @@
 
 using namespace std;
 
+unsigned int vertexdegree[NO_OF_VERTICES];
+
+
 class UndirectedGraph : public GraphInterface
 {
 	public:
 		UndirectedGraph()
 		{
-			
+
 		}			
-		
+
 		void initialize()
 		{
 			for(int i=0;i<NO_OF_VERTICES;i++)
 				vertexdegree[i] = 0;
-			
+
 		}
-		
-		unsigned int addedge(int srcvertex,int dstvertex,unsigned int edgeweight)
+
+void addedge(int srcvertex,int dstvertex,unsigned int edgeweight)
 		{
 			/*struct edgedetails *newedge = (struct edgedetails *)malloc(sizeof(struct edgedetails));
 			newedge->edgeweight = edgeweight;
@@ -42,12 +45,11 @@ class UndirectedGraph : public GraphInterface
 				//cout<<"\nsrc vertex "<<srcvertex<<" degree "<<vertexdegree[srcvertex]<<endl;
 				adjmatrix[dstvertex*NO_OF_VERTICES+srcvertex] = edgeweight;
 				vertexdegree[dstvertex]++;
-			}
-			return vertexdegree[srcvertex];
-				
+			}			
+
 		}
 		
-		void display(int srcvertex)
+void display(int srcvertex)
 		{
 			int size = 0;
 			static double sumofedges = 0 ;
@@ -62,9 +64,10 @@ class UndirectedGraph : public GraphInterface
 						size++;
 					}
 				}
-			cout<<"\n Degree is "<<size;
-			sumofedges += size;
-			cout<<"\n Sum of edges is "<<sumofedges;
+			if(size != 1000)
+				cout<<"\nsrc vertex "<<srcvertex<<" Degree is "<<size;
+			//sumofedges += size;
+			//cout<<"\n Sum of edges is "<<sumofedges;
 		}
 };
 
