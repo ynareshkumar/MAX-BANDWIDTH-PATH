@@ -6,7 +6,7 @@
 using namespace std;
 
 unsigned int vertexdegree[NO_OF_VERTICES];
-
+std::vector<int> adjmatrix(NO_OF_VERTICES*NO_OF_VERTICES);
 
 class UndirectedGraph : public GraphInterface
 {
@@ -48,30 +48,31 @@ void addedge(int srcvertex,int dstvertex,unsigned int edgeweight)
 			}			
 
 		}
-		
+
 void display(int srcvertex)
 		{
 			int size = 0;
 			static double sumofedges = 0 ;
-			//cout<<"\nDst vertex Edge weight"<<endl;
+			cout<<"Source vertex "<<srcvertex<<endl;
+			cout<<"\nDst vertex Edge weight"<<endl;
 			for(int i=0;i<NO_OF_VERTICES;i++)
 				{
 					/*if (!adjmatrix[srcvertex*NO_OF_VERTICES+i].empty)
 						cout<<i<<" ";*/
 					if (adjmatrix[srcvertex*NO_OF_VERTICES+i] != 0)
 					{
-						//cout<<i<<"\t    "<<adjmatrix[srcvertex*NO_OF_VERTICES+i]<<endl;
+						cout<<i<<"\t    "<<adjmatrix[srcvertex*NO_OF_VERTICES+i]<<endl;
 						size++;
 					}
 				}
-			if(size != 1000)
-				cout<<"\nsrc vertex "<<srcvertex<<" Degree is "<<size;
+			/*if(size != VERTEX_DEGREE)
+				cout<<"\nsrc vertex "<<srcvertex<<" Degree is "<<size;*/
 			//sumofedges += size;
 			//cout<<"\n Sum of edges is "<<sumofedges;
 		}
 };
 
-GraphInterface * createInstance()
+GraphInterface * creategraphInstance()
 		{
 			return new UndirectedGraph();
 		}
