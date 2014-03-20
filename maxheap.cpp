@@ -165,5 +165,29 @@ class maxheapoperations : public maxheapinterface
 		}
 
 	
+	/*int main()
+	{
+		initialize();
+		insert(4);		
+		insert(9);
+		insert(6);		
+		insert(45);
+		insert(89);
+		insert(386);		insert(20);
+		
+		//display();
+		remove(0);
+		display();
+		updatevalue(0,100);
+		display();
+		updatevalue(1,101);
+		display();
+		updatevalue(1,8);
+		display();
+		updatevalue(0,1);
+		display();
+		//cout<<"Parent "<<D[leftchild(1)]<<endl;
+		return 0;
+	}*/
 	
 
