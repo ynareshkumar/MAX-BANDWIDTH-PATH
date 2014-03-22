@@ -2,7 +2,7 @@
 #define GRAPHINTERFACE_H
 
 #include <vector>
-#define NO_OF_VERTICES 20
+#define NO_OF_VERTICES 5000
 #define VERTEX_DEGREE 6
 
 using namespace std;
