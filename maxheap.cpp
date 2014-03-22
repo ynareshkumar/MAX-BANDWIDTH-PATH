@@ -5,12 +5,14 @@
 
 using namespace std;
 
+int H[NO_OF_VERTICES];
+int heapsize;
+int D[NO_OF_VERTICES];
+
 class maxheapoperations : public maxheapinterface
 {
 	private:
-		int H[NO_OF_VERTICES];
-		int heapsize;
-		int D[NO_OF_VERTICES];
+		
 		
 		int parent(int index)
 		{
@@ -85,7 +87,7 @@ class maxheapoperations : public maxheapinterface
 			}
 		}
 		
-		public:
+		public:				
 		
 		maxheapoperations()
 		{
@@ -99,6 +101,7 @@ class maxheapoperations : public maxheapinterface
 			{
 				H[i] = i;
 				D[i] = INT_MIN;
+				heapsize++;
 			}
 		}		
 				
@@ -113,18 +116,23 @@ class maxheapoperations : public maxheapinterface
 			
 		}
 		
+		int getvalue(int i)
+		{
+			return D[i];
+		}				
 		
 		
-		void remove(int index)
+		int remove(int index)
 		{
 
 			int i=index;	
-			D[H[index]] = D[H[heapsize]];
+			int returnindex = H[index];
+			//D[H[index]] = D[H[heapsize]];
 			H[index] = H[heapsize];		
 			heapsize--;
 			
-			updateinchild(i);
-			
+			updateinchild(i);			
+			return returnindex;
 			
 		}
 		
@@ -139,22 +147,34 @@ class maxheapoperations : public maxheapinterface
 			
 		}
 		
-		void updatevalue(int heapindex,int val)
+		void updatevalue(int heapind,int val)
 		{
-			int left,right;
-			D[H[heapindex]] = val;
+			int left,right,heapindex;
+			
+			for(int m=0;m<NO_OF_VERTICES;m++)
+			{
+				if(H[m] == heapind)
+				{
+					heapindex = m;
+					break;
+				}
+			}
+			D[H[heapindex]] = val;			
 			
 			left = leftchild(heapindex);
 			right = rightchild(heapindex);
 			
 			if(parent(heapindex) != -1 && D[H[heapindex]] > D[H[parent(heapindex)]]) 
 			{
+				//cout<<"Updating in parent "<<endl;
 				updateinparent(heapindex);
 			}
 			else if((left != -1 && D[H[heapindex]] < D[H[left]]) || (right != -1 && D[H[heapindex]] < D[H[right]]))
 			{
+				//cout<<"Updating in child "<<endl;
 				updateinchild(heapindex);
 			}
+			//cout<<"Value updated for "<<H[heapindex]<<" with "<<D[1]<<endl;
 	
 		}
 	};
