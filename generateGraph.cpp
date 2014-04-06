@@ -72,7 +72,7 @@ class creategraph : public gengraphinterface
 		/*for(int k=0;k < NO_OF_VERTICES ;k++)
 		{	
 			graph->display(k);
-		}	*/
+		}*/
 			
 	}
 };
