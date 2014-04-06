@@ -3,17 +3,17 @@
 
 #include <vector>
 #define NO_OF_VERTICES 5000
-#define VERTEX_DEGREE 6
+#define VERTEX_DEGREE 1000
 
 using namespace std;
 
 extern std::vector<int> adjmatrix;
 extern unsigned int vertexdegree[NO_OF_VERTICES];
 
-struct edgedetails{
+/*struct edgedetails{
 	unsigned int edgeweight;
 	struct edgedetails *next;	
-};
+};*/
 
 
 class GraphInterface
