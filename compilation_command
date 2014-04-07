@@ -1,0 +1,2 @@
+g++ -o output graphUtility.cpp generateGraph.cpp runtimecalculation.cpp dijkstrawoheap.cpp dijkstrawithheap.cpp maxheap.cpp kruskal.cpp maxbwpathkruskal.cpp 
+./output
